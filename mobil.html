@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dealer Mobil - Jual Beli Mobil Bekas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           RESET & MOBILE-FIRST BASE STYLES
+           ========================================= */
+        :root {
+            --primary-color: #F90800;
+            --bg-color: #f4f4f9;
+            --text-main: #333;
+            --text-light: #666;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-main);
+            transition: color 0.3s ease;
+        }
+
+        /* =========================================
+           HEADER & NAVIGATION
+           ========================================= */
+        header {
+            background-color: var(--white);
+            padding: 15px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .header-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .nav-menu {
+            background-color: var(--primary-color);
+            display: flex;
+            overflow-x: auto; /* Bisa digeser ke samping di HP */
+            white-space: nowrap;
+            padding: 10px;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .nav-menu a:hover {
+            background-color: #000;
+            border-radius: 4px;
+        }
+
+        /* =========================================
+           MAIN CONTENT & CAR GRID (MOBILE FIRST)
+           ========================================= */
+        .container {
+            padding: 20px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+
+        /* CSS Grid untuk daftar mobil - Mulai dari 1 kolom di HP */
+        .car-grid {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 20px;
+        }
+
+        .car-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .car-img img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .car-details {
+            padding: 15px;
+        }
+
+        .car-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .car-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .car-price {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .car-specs {
+            width: 100%;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            border-collapse: collapse;
+        }
+
+        .car-specs td {
+            padding: 4px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* =========================================
+           FLOATING CALL BUTTON (MOBILE)
+           ========================================= */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366; /* Warna khas WhatsApp/Telepon */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .floating-btn:hover {
+            background-color: #1ebd5a;
+            color: white;
+        }
+
+        /* =========================================
+           MEDIA QUERIES (TABLET & DESKTOP)
+           ========================================= */
+        /* Tablet (Mulai 768px) */
+        @media screen and (min-width: 768px) {
+            .car-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 Kolom */
+            }
+            .header-info {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+        }
+
+        /* Desktop (Mulai 1024px) */
+        @media screen and (min-width: 1024px) {
+            .car-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 Kolom */
+            }
+            .nav-menu {
+                justify-content: center; /* Menu di tengah untuk desktop */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-title">Maestro Mobil Jogja</div>
+        <div class="header-info">
+            <p>📍 Jl. Wonosari KM 9, Gandu, Yogyakarta</p>
+            <p>📞 HP / WA : 0851.0085.9298</p>
+        </div>
+    </header>
+
+    <nav class="nav-menu">
+        <a href="#">Home</a>
+        <a href="#">Tentang Kami</a>
+        <a href="#">Pricelist</a>
+        <a href="#">Kategori Mobil</a>
+        <a href="#">Google Maps</a>
+    </nav>
+
+    <main class="container">
+        <h2 class="section-title">Mobil Terbaru</h2>
+        
+        <div class="car-grid">
+            
+            <div class="car-card">
+                <div class="car-img">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=500&q=60" alt="Splash GL">
+                </div>
+                <div class="car-details">
+                    <h3 class="car-title"><a href="#">Suzuki Splash GL 1.2 M/T '2012</a></h3>
+                    <div class="car-price">Rp 77.900.000</div>
+                    <table class="car-specs">
+                        <tr><td>Tahun</td><td>: 2012</td></tr>
+                        <tr><td>Bahan Bakar</td><td>: Bensin</td></tr>
+                        <tr><td>Transmisi</td><td>: Manual</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="car-card">
+                <div class="car-img">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=500&q=60" alt="Honda City">
+                </div>
+                <div class="car-details">
+                    <h3 class="car-title"><a href="#">New City 1.5 VTec A/T Th'2005</a></h3>
+                    <div class="car-price">Rp 69.900.000</div>
+                    <table class="car-specs">
+                        <tr><td>Tahun</td><td>: 2005</td></tr>
+                        <tr><td>Bahan Bakar</td><td>: Bensin</td></tr>
+                        <tr><td>Transmisi</td><td>: Automatic</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="car-card">
+                <div class="car-img">
+                    <img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?auto=format&fit=crop&w=500&q=60" alt="Grand Livina">
+                </div>
+                <div class="car-details">
+                    <h3 class="car-title"><a href="#">Grand Livina 1.5 SV M/T Th'2010</a></h3>
+                    <div class="car-price">Rp 72.900.000</div>
+                    <table class="car-specs">
+                        <tr><td>Tahun</td><td>: 2010</td></tr>
+                        <tr><td>Bahan Bakar</td><td>: Bensin</td></tr>
+                        <tr><td>Transmisi</td><td>: Manual</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="car-card">
+                <div class="car-img">
+                    <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=60" alt="Jazz V-tech">
+                </div>
+                <div class="car-details">
+                    <h3 class="car-title"><a href="#">Jazz V-tech 2006 A/T</a></h3>
+                    <div class="car-price">Rp 84.900.000</div>
+                    <table class="car-specs">
+                        <tr><td>Tahun</td><td>: 2006</td></tr>
+                        <tr><td>Bahan Bakar</td><td>: Bensin</td></tr>
+                        <tr><td>Transmisi</td><td>: Automatic</td></tr>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <a href="tel:085100859298" class="floating-btn">
+        📞 Hubungi Kami
+    </a>
+
+</body>
+</html>
