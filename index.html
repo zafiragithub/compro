@@ -1587,7 +1587,7 @@
                     // AUDIO LOGIC (Beep at T-10 mins)
                     // Logika baru: Toleransi 1 menit penuh (selama masih di menit ke-10 sebelum waktu)
                     // Note: diff = now - time.
-                    Jadi 10 menit sebelum waktu adalah -10.
+                    // Jadi 10 menit sebelum waktu adalah -10.
                     if (diffMins === -10) {
                          const key = `beep-${name}-${now.getDate()}`;
                          if (this.lastPlayed.beep !== key) {
@@ -2284,7 +2284,7 @@ Acara diisi dengan ceramah agama yang disampaikan ol...                         
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // BOS: GANTI TEKS DI BAWAH INI DENGAN URL API DARI GOOGLE SCRIPT YANG BARU DIBUAT
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxgitQtfqSvxFyi1Ujl2-Vi-dBjIl3bNDkdw3_0Z9cWpjfEfbva7nosxvm8bvEHB1LgnQ/exec';
+            const scriptURL = 'MASUKKAN_URL_API_BOS_DI_SINI';
 
             fetch(scriptURL)
                 .then(response => response.json())
