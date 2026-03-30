@@ -1,0 +1,854 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head prefix="og: http://ogp.me/ns#">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- WAJIB DI ATAS: Open Graph / WhatsApp Preview -->
+    
+    <title>Tentang Kami</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="https://kuapulautiga.com/manifest.json?v=2026033016">
+    <meta name="theme-color" content="#059669">
+    
+    <!-- iOS Support -->
+    <link rel="apple-touch-icon" href="https://kuapulautiga.com/uploads/profil/1768284126_4dc881efc56e68055775.png?v=2026033016">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SIPULANA">
+    <!-- Viewport fit=cover for Notch Support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <!-- Twitter -->
+        
+    <!-- CSS Build (Production) -->
+    <link href="https://kuapulautiga.com/css/style.css?v=2026033016" rel="stylesheet">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Adhan.js (Local) -->
+    <script src="https://kuapulautiga.com/js/Adhan.min.js?v=2026033016"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Icons (Heroicons/Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@700&family=Inter:wght@300;400;500;600;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"],
+        input[type="datetime-local"],
+        input[type="time"],
+        input[type="tel"],
+        input[type="url"],
+        select,
+        textarea {
+            border: 1px solid #e5e7eb !important;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+        }
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #22c55e !important;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+            outline: none;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table th,
+        table td {
+            border: 1px solid #e5e7eb;
+        }
+        
+        /* Safe Area Inset for Mobile (Notch Support) */
+        body {
+            padding-top: env(safe-area-inset-top);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .nav-item-active { transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+        .nav-item-active:active { transform: translateY(6px) scale(0.9); opacity: 0.85; }
+        .kua-apk-nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 50;
+        }
+        @media (min-width: 1024px) {
+            .kua-apk-nav { display: none; }
+        }
+        .kua-apk-nav-backdrop {
+            background: transparent;
+            padding: 0;
+        }
+        .kua-apk-container {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+        }
+        .kua-apk-pill {
+            position: relative;
+            min-height: 75px;
+            background: #fff;
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 -6px 18px -14px rgba(0,0,0,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 0;
+            padding-left: calc(24px + constant(safe-area-inset-left));
+            padding-left: calc(24px + env(safe-area-inset-left));
+            padding-right: calc(24px + constant(safe-area-inset-right));
+            padding-right: calc(24px + env(safe-area-inset-right));
+            padding-bottom: constant(safe-area-inset-bottom);
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .kua-apk-item {
+            width: 48px;
+            padding-top: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: #9ca3af;
+            text-decoration: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .kua-apk-item:active {
+            transform: translateY(6px) scale(0.9);
+            opacity: 0.85;
+        }
+        .kua-apk-item-active {
+            color: #059669;
+        }
+        .kua-apk-item svg {
+            width: 24px;
+            height: 24px;
+        }
+        .kua-apk-label {
+            font-size: 9px;
+            font-weight: 600;
+            line-height: 1;
+        }
+        .kua-apk-spacer {
+            width: 64px;
+        }
+        .kua-apk-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            text-decoration: none;
+        }
+        .kua-apk-center:active {
+            transform: translateX(-50%) translateY(16px) scale(0.95);
+        }
+        .kua-apk-center-outer {
+            width: 76px;
+            height: 76px;
+            background: #f3f4f6;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 4px 4px rgba(0,0,0,0.02);
+        }
+        .kua-apk-center-inner {
+            width: 58px;
+            height: 58px;
+            background: #059669;
+            color: #fff;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #fff;
+            box-shadow: 0 8px 15px rgba(22,163,74,0.4);
+        }
+        .kua-apk-center-inner-active {
+            background: #047857;
+        }
+        .kua-apk-center-inner svg {
+            width: 28px;
+            height: 28px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen overflow-x-hidden pb-16 lg:pb-0">
+    
+    <div id="global-page-loader" class="fixed inset-0 z-[70] flex items-center justify-center bg-white/95 transition-opacity duration-500">
+        <div class="relative">
+            <div class="w-24 h-24 rounded-full border-4 border-emerald-100 border-t-emerald-600 animate-spin"></div>
+            <div class="absolute inset-3 rounded-full bg-white flex items-center justify-center shadow-lg">
+                <img src="https://kuapulautiga.com/uploads/profil/1768284126_4dc881efc56e68055775.png" alt="Logo Aplikasi" class="w-14 h-14 object-contain rounded-full">
+            </div>
+        </div>
+    </div>
+    <!-- WhatsApp Image Fallback (Hidden) -->
+        
+    <!-- Navbar -->
+        <nav class="bg-white shadow-sm sticky top-0 z-50 transition-all duration-300">
+        
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex justify-center lg:justify-between relative lg:h-20 items-center h-16">
+                                                    <a href="javascript:history.back()" class="absolute left-0 top-1/2 -translate-y-1/2 p-3 text-slate-700 hover:text-slate-900 transition active:scale-95">
+                        <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                    </a>
+                                <div class="flex items-center ">
+                    <a href="https://kuapulautiga.com/" class="flex-shrink-0 flex items-center flex-row gap-3">
+                        <img class="h-10 w-auto rounded-full object-cover shadow-sm lg:h-12" src="https://kuapulautiga.com/uploads/profil/1768284126_4dc881efc56e68055775.png" alt="Logo">
+                        <div class="text-left">
+                            <h1 class="font-bold text-lg lg:text-xl leading-none text-green-800">KUA Pulau Tiga</h1>
+                            <p class="text-[10px] lg:text-xs text-gray-500">Kementerian Agama Kab. Natuna</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-2 absolute right-0 top-1/2 -translate-y-1/2">
+                    <a href="https://kuapulautiga.com/" class="text-gray-600 hover:text-green-600 px-3 py-2 rounded-xl text-sm font-medium transition active:bg-gray-100">Beranda</a>
+                    
+                    <!-- Dropdown Informasi -->
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-green-600 px-3 py-2 rounded-xl text-sm font-medium flex items-center gap-1 group-hover:text-green-600 transition active:bg-gray-100">
+                            Informasi <i class="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-0 mt-0 w-48 rounded-xl shadow-lg bg-white border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50 top-full pt-2">
+                            <div class="bg-white rounded-xl overflow-hidden py-1">
+                                <a href="https://kuapulautiga.com/tentang" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Tentang Kami</a>
+                                <a href="https://kuapulautiga.com/berita-publik" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Berita KUA</a>
+                                <a href="https://kuapulautiga.com/alur-sistem" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Alur Registrasi</a>
+                                <a href="https://kuapulautiga.com/konten-dakwah" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Konten Dakwah</a>
+                                <a href="https://kuapulautiga.com/khutbah-publik" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Koleksi Khutbah</a>
+                                <a href="https://kuapulautiga.com/struktur" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Struktur Organisasi</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Layanan -->
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-green-600 px-3 py-2 rounded-xl text-sm font-medium flex items-center gap-1 group-hover:text-green-600 transition active:bg-gray-100">
+                            Layanan Publik <i class="fas fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-0 mt-0 w-56 rounded-xl shadow-lg bg-white border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50 top-full pt-2">
+                            <div class="bg-white rounded-xl overflow-hidden py-1">
+                                <a href="https://kuapulautiga.com/konsultasi-online" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Konsultasi Syariah</a>
+                                <!-- <a href="https://kuapulautiga.com/jadwal-nikah" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Pengumuman Nikah</a> -->
+                                <a href="https://kuapulautiga.com/layanan/direktori-masjid" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Direktori Masjid</a>
+                                <a href="https://kuapulautiga.com/zakat" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Kalkulator Zakat</a>
+                                <a href="https://kuapulautiga.com/waris" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Kalkulator Waris</a>
+                                <a href="https://kuapulautiga.com/cek-syarat-nikah" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Cek Syarat Nikah</a>
+                                <a href="https://kuapulautiga.com/buku-tamu/kiosk" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors">Buku Tamu Digital</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://kuapulautiga.com/login" class="bg-green-600 text-white px-5 py-2 rounded-xl text-sm font-medium hover:bg-green-700 ml-4 shadow-sm hover:shadow-md transition-all active:scale-95">Login Petugas</a>
+                </div>
+                <!-- Mobile menu button (Hidden) -->
+                <div class="hidden md:hidden">
+                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-500 hover:text-gray-700 focus:outline-none p-2 rounded-xl active:bg-gray-100 transition">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t max-h-[80vh] overflow-y-auto">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="https://kuapulautiga.com/" class="block text-gray-600 hover:text-green-600 py-3 text-base font-medium border-b border-gray-50 active:bg-gray-50 rounded-xl px-2">Beranda</a>
+                
+                <div class="pt-2">
+                    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1 px-2">Informasi</p>
+                    <a href="https://kuapulautiga.com/tentang" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Tentang Kami</a>
+                    <a href="https://kuapulautiga.com/berita-publik" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Berita KUA</a>
+                    <a href="https://kuapulautiga.com/alur-sistem" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Alur Registrasi</a>
+                    <a href="https://kuapulautiga.com/konten-dakwah" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Konten Dakwah</a>
+                    <a href="https://kuapulautiga.com/khutbah-publik" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Koleksi Khutbah</a>
+                    <a href="https://kuapulautiga.com/struktur" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Struktur Organisasi</a>
+                </div>
+
+                <div class="pt-2">
+                    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1 px-2">Layanan Publik</p>
+                    <a href="https://kuapulautiga.com/konsultasi-online" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Konsultasi Syariah</a>
+                    <a href="https://kuapulautiga.com/jadwal-nikah" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Pengumuman Nikah</a>
+                    <a href="https://kuapulautiga.com/layanan/direktori-masjid" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Direktori Masjid</a>
+                    <a href="https://kuapulautiga.com/zakat" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Kalkulator Zakat</a>
+                    <a href="https://kuapulautiga.com/waris" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Kalkulator Waris</a>
+                    <a href="https://kuapulautiga.com/cek-syarat-nikah" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Cek Syarat Nikah</a>
+                    <a href="https://kuapulautiga.com/buku-tamu/kiosk" class="block pl-3 border-l-2 border-transparent hover:border-green-500 text-gray-600 hover:text-green-600 py-3 text-sm font-medium active:bg-gray-50 rounded-r-xl">Buku Tamu Digital</a>
+                </div>
+
+                <div class="pt-4 pb-2">
+                    <a href="https://kuapulautiga.com/login" class="block w-full text-center bg-green-600 text-white px-4 py-3 rounded-xl text-base font-medium hover:bg-green-700 shadow-sm active:scale-95 transition-transform">Login Petugas</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="flex-grow">
+        <style>
+    .kemenag-bg {
+        background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+    }
+    .card-shadow {
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+    }
+    .drop-cap::first-letter {
+        float: left;
+        font-size: 3.5rem;
+        line-height: 0.85;
+        font-weight: 800;
+        margin-right: 0.75rem;
+        margin-top: 0.15rem;
+        color: #059669; /* emerald-600 */
+    }
+</style>
+
+<!-- Header Section -->
+<div class="relative mb-8">
+    <div class="kemenag-bg text-white pt-14 pb-32 px-6 relative overflow-hidden rounded-b-[2.5rem] shadow-lg">
+        <!-- Background Pattern -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+            <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white mix-blend-overlay blur-3xl"></div>
+            <div class="absolute bottom-0 left-1/4 w-64 h-64 rounded-full bg-yellow-400 mix-blend-overlay blur-3xl"></div>
+            <!-- Batik Pattern Overlay could go here if available -->
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto">
+            <div class="text-center pt-4">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight mb-4 max-w-2xl mx-auto">
+                    Mengenal KUA Pulau Tiga                </h1>
+                <p class="text-emerald-50 text-base sm:text-lg font-medium opacity-90 max-w-2xl mx-auto">
+                    Transformasi Digital Layanan Urusan Agama untuk Masyarakat yang Lebih Maju dan Religius.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 relative z-20 pb-16">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Kolom Kiri: Profil & Sejarah -->
+        <div class="lg:col-span-2 space-y-8">
+            <!-- Card Profil -->
+            <div class="bg-white rounded-[2rem] card-shadow border border-slate-100 overflow-hidden">
+                                    <div class="h-64 w-full relative">
+                        <img src="https://kuapulautiga.com/uploads/profil/1768210548_ef745efd1f593f24b94f.png" alt="Kantor KUA" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                            <div class="text-white">
+                                <h2 class="text-2xl font-bold">KUA Pulau Tiga</h2>
+                                <p class="text-white/80 text-sm">Jalan Tanjung Persenangan Nyit Nyit</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                <div class="p-8 md:p-10">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                            <i data-lucide="book-open" class="w-5 h-5"></i>
+                        </span>
+                        Tentang Kami
+                    </h2>
+                    
+                    <div class="prose prose-emerald max-w-none text-gray-600 leading-relaxed drop-cap">
+                        Assalamu’alaikum Warahmatullahi Wabarakatuh.<br />
+<br />
+Selamat datang di SIPULANA (Sistem Informasi dan Pusat Layanan Keagamaan) KUA Pulau Tiga, sebuah platform layanan digital resmi dari Kantor Urusan Agama Pulau Tiga. Aplikasi ini kami hadirkan sebagai wujud komitmen kami dalam memberikan pelayanan prima yang lebih dekat, mudah, dan transparan bagi seluruh lapisan masyarakat.<br />
+<br />
+SIPULANA mengintegrasikan berbagai layanan keagamaan dalam satu pintu, meliputi info pendaftaran dan administrasi pernikahan, bimbingan keluarga sakinah, konseling, mediasi keluarga, konsultasi syariah, pengelolaan zakat dan wakaf, pembinaan kemasjidan, serta bimbingan dan penyuluhan keagamaan. Melalui sistem ini, kami berikhtiar untuk menghadirkan birokrasi yang ringkas dan akuntabel.<br />
+<br />
+Besar harapan kami, inovasi ini dapat memberikan manfaat nyata, memudahkan urusan akses informasi dan layanan keagamaan anda, serta mewujudkan tatanan masyarakat yang religius dan harmonis. Kami siap melayani anda dengan sepenuh hati.                    </div>
+                </div>
+            </div>
+
+            <!-- Visi & Misi -->
+            <div class="bg-white rounded-[2rem] card-shadow border border-slate-100 p-8 md:p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Visi -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 shadow-sm">
+                                <i data-lucide="target" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Visi</h3>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed italic">
+                            "Terwujudnya pelayanan keagamaan yang profesional, transparan, dan berintegritas dalam membangun keluarga sakinah serta masyarakat Pulau Tiga yang religius, harmonis, dan berakhlak mulia"
+                        </p>
+                    </div>
+                    
+                    <!-- Misi -->
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600 shadow-sm">
+                                <i data-lucide="list-checks" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Misi</h3>
+                        </div>
+                        <div class="text-gray-600 leading-relaxed space-y-2">
+                            1. Meningkatkan kualitas pelayanan administrasi dan pencatatan nikah yang cepat, tepat, dan akuntabel.<br />
+<br />
+2. Membina dan mewujudkan keluarga sakinah, mawaddah, wa rahmah melalui bimbingan perkawinan dan penyuluhan keagamaan.<br />
+<br />
+3. Mengembangkan pembinaan keagamaan masyarakat untuk meningkatkan pemahaman dan pengamalan ajaran Islam.<br />
+<br />
+4. Meningkatkan profesionalisme sumber daya manusia aparatur KUA dalam memberikan pelayanan prima.<br />
+<br />
+5. Memperkuat koordinasi dan kerja sama dengan pemerintah daerah, tokoh agama, dan masyarakat.<br />
+<br />
+6. Mewujudkan tata kelola kelembagaan yang bersih, transparan, dan berorientasi pada kepuasan masyarakat.                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kolom Kanan: Sidebar Info -->
+        <div class="space-y-8">
+            
+            <!-- Kontak Cepat -->
+            <div class="bg-white rounded-[2rem] card-shadow border border-slate-100 p-8">
+                <h3 class="text-lg font-bold text-gray-800 mb-6">Hubungi Kami</h3>
+                <div class="space-y-5">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-900">Alamat Kantor</p>
+                            <p class="text-sm text-gray-500 mt-1">Jalan Tanjung Persenangan Nyit Nyit</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-900">Telepon / WhatsApp</p>
+                            <p class="text-sm text-gray-500 mt-1">081270121986</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600 shrink-0">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-gray-900">Email Resmi</p>
+                            <p class="text-sm text-gray-500 mt-1">kuapulautiga@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="mt-8 pt-6 border-t border-gray-100">
+                    <p class="text-sm font-medium text-gray-900 mb-4">Media Sosial</p>
+                    <div class="flex gap-3">
+                                                <a href="https://www.facebook.com/kua.pulautiga" target="_blank" class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition shadow-sm hover:shadow-md">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                                                
+                                                <a href="https://www.instagram.com/kua.pulau.tiga" target="_blank" class="w-10 h-10 rounded-full bg-pink-600 text-white flex items-center justify-center hover:bg-pink-700 transition shadow-sm hover:shadow-md">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        
+                                            </div>
+                </div>
+            </div>
+
+            <!-- Layanan Kami -->
+            <div class="bg-emerald-900 rounded-[2rem] card-shadow p-8 text-white relative overflow-hidden">
+                <h3 class="text-lg font-bold mb-6 relative z-10">Layanan Unggulan</h3>
+                <ul class="space-y-4 relative z-10">
+                                        <li class="flex items-center gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+                        <span class="text-emerald-50">Pernikahan</span>
+                    </li>
+                                        <li class="flex items-center gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+                        <span class="text-emerald-50">Zakat dan Waqaf</span>
+                    </li>
+                                        <li class="flex items-center gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+                        <span class="text-emerald-50">Kemasjidan</span>
+                    </li>
+                                        <li class="flex items-center gap-3">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+                        <span class="text-emerald-50">Konsultasi Syari&#039;ah</span>
+                    </li>
+                                    </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+    </main>
+
+    
+    <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Kontak Kami</h3>
+                    <p class="text-gray-400 text-sm mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Jalan Tanjung Persenangan Nyit Nyit</p>
+                    <p class="text-gray-400 text-sm mb-2"><i class="fas fa-phone mr-2"></i> 081270121986</p>
+                    <p class="text-gray-400 text-sm"><i class="fas fa-envelope mr-2"></i> kuapulautiga@gmail.com</p>
+                    
+                    <div class="mt-6">
+                        <h4 class="text-sm font-semibold mb-3 text-gray-300">Ikuti Kami</h4>
+                        <div class="flex space-x-4">
+                                                            <a href="https://www.facebook.com/kua.pulautiga" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-500 transition"><i class="fab fa-facebook text-xl"></i></a>
+                                                                                        <a href="https://www.instagram.com/kua.pulau.tiga" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-500 transition"><i class="fab fa-instagram text-xl"></i></a>
+                                                                                                                                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Layanan</h3>
+                    <ul class="text-gray-400 text-sm space-y-2">
+                        <li><a href="https://kuapulautiga.com/layanan/pernikahan" class="hover:text-white">Pernikahan</a></li>
+                        <li><a href="https://kuapulautiga.com/layanan/zakat-wakaf" class="hover:text-white">Zakat dan Waqaf</a></li>
+                        <li><a href="https://kuapulautiga.com/layanan/kemasjidan" class="hover:text-white">Kemasjidan</a></li>
+                        <li><a href="https://kuapulautiga.com/layanan/konsultasi-syariah" class="hover:text-white">Konsultasi Syari'ah</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Jam Pelayanan</h3>
+                    <p class="text-gray-400 text-sm mb-2">Senin - Kamis: 08:00 - 16:00</p>
+                    <p class="text-gray-400 text-sm mb-2">Jumat: 08:00 - 16:30</p>
+                    <p class="text-gray-400 text-sm">Sabtu - Minggu: Libur</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-500">
+                &copy; 2026 KUA Pulau Tiga. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- PWA Install Prompt -->
+    <!-- Mobile: Side Sheet Left Center -->
+<div id="pwa-install-prompt-mobile" class="fixed inset-0 z-50 flex items-center justify-start bg-black/50 md:hidden transition-opacity duration-300 opacity-0 pointer-events-none">
+    <!-- Card Container -->
+    <div id="pwa-mobile-card" class="bg-white rounded-r-2xl shadow-2xl border-r border-y border-gray-100 max-w-sm w-[85%] relative transform transition-transform duration-500 -translate-x-full overflow-hidden">
+        <!-- Decoration (Vertical on Left) -->
+        <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-emerald-600 to-emerald-400"></div>
+        
+        <div class="p-5 flex items-start gap-4 pl-6">
+            <!-- App Icon -->
+            <div class="flex-shrink-0">
+                <div class="w-14 h-14 rounded-xl bg-emerald-50 flex items-center justify-center p-2 border border-emerald-100 shadow-sm">
+                    <img src="https://kuapulautiga.com/uploads/profil/1768284126_4dc881efc56e68055775.png" alt="App Logo" class="w-full h-full object-contain">
+                </div>
+            </div>
+            
+            <!-- Content -->
+            <div class="flex-1">
+                <h3 class="font-bold text-gray-900 text-lg leading-tight mb-1">Install App</h3>
+                <p class="text-xs text-gray-500 leading-relaxed">Pasang aplikasi SIPULANA agar lebih cepat & hemat kuota.</p>
+            </div>
+            
+            <!-- Close Button -->
+            <button id="pwa-close-btn-mobile" class="flex-shrink-0 text-gray-400 hover:text-gray-600 -mt-2 -mr-2 p-2">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+        
+        <!-- Actions -->
+        <div class="bg-gray-50 px-5 py-3 flex items-center justify-end gap-2 border-t border-gray-100 pl-6">
+            <button id="pwa-dismiss-btn-mobile" class="text-xs font-medium text-gray-500 hover:text-gray-700 px-3 py-2">
+                Nanti
+            </button>
+            <button id="pwa-install-btn-mobile" class="text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 px-4 py-2 rounded-lg shadow-lg shadow-emerald-200 transition-all flex items-center gap-2">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                Install
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Desktop: Floating Action Button (FAB) -->
+<div id="pwa-install-prompt-desktop" class="hidden md:flex fixed bottom-6 right-6 z-50 flex-col items-end gap-2 transition-all duration-500 translate-y-20 opacity-0">
+    <!-- Tooltip / Callout -->
+    <div id="pwa-desktop-tooltip" class="bg-white px-4 py-3 rounded-xl shadow-xl border border-gray-100 mb-2 max-w-xs relative transition-all duration-300 origin-bottom-right scale-95 opacity-0 pointer-events-none">
+        <div class="flex items-start gap-3">
+            <div class="flex-1">
+                <p class="text-sm font-bold text-gray-900">Install Aplikasi</p>
+                <p class="text-xs text-gray-500 mt-0.5">Pasang SIPULANA di PC Anda untuk akses lebih mudah.</p>
+            </div>
+            <button id="pwa-close-tooltip-desktop" class="text-gray-400 hover:text-gray-600">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+        </div>
+        <!-- Arrow -->
+        <div class="absolute -bottom-1.5 right-6 w-3 h-3 bg-white border-b border-r border-gray-100 transform rotate-45"></div>
+    </div>
+
+    <!-- FAB Button -->
+    <button id="pwa-install-btn-desktop" class="group flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-full shadow-lg hover:shadow-emerald-500/30 transition-all duration-300 hover:pr-6">
+        <div class="bg-white/20 p-1.5 rounded-full group-hover:bg-white/30 transition-colors">
+            <i data-lucide="download" class="w-5 h-5"></i>
+        </div>
+        <span class="font-bold text-sm pr-1">Install App</span>
+    </button>
+</div>
+
+<script>
+    let deferredPrompt;
+    
+    // Mobile Elements
+    const mobilePrompt = document.getElementById('pwa-install-prompt-mobile');
+    const mobileCard = document.getElementById('pwa-mobile-card');
+    const mobileInstallBtn = document.getElementById('pwa-install-btn-mobile');
+    const mobileCloseBtn = document.getElementById('pwa-close-btn-mobile');
+    const mobileDismissBtn = document.getElementById('pwa-dismiss-btn-mobile');
+
+    // Desktop Elements
+    const desktopPrompt = document.getElementById('pwa-install-prompt-desktop');
+    const desktopInstallBtn = document.getElementById('pwa-install-btn-desktop');
+    const desktopTooltip = document.getElementById('pwa-desktop-tooltip');
+    const desktopCloseTooltip = document.getElementById('pwa-close-tooltip-desktop');
+
+    // Show Logic
+    const showPromotion = () => {
+        // Mobile Show (Backdrop Fade In + Card Slide In)
+        mobilePrompt.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => {
+            mobileCard.classList.remove('-translate-x-full');
+        }, 50); // Small delay to ensure display is rendered
+        
+        // Desktop Show
+        desktopPrompt.classList.remove('translate-y-20', 'opacity-0');
+        
+        // Show Tooltip briefly on Desktop then hide
+        setTimeout(() => {
+            desktopTooltip.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+        }, 500);
+        
+        // Auto hide tooltip after 8 seconds
+        setTimeout(() => {
+            desktopTooltip.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        }, 8000);
+    };
+
+    // Install Action
+    const handleInstall = async () => {
+        if (deferredPrompt) {
+            // Hide UI
+            closeMobile();
+            desktopPrompt.classList.add('translate-y-20', 'opacity-0');
+            
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            deferredPrompt = null;
+        }
+    };
+
+    // Close Actions
+    const closeMobile = () => {
+        // Slide Out First
+        mobileCard.classList.add('-translate-x-full');
+        // Then Fade Out Backdrop
+        setTimeout(() => {
+            mobilePrompt.classList.add('opacity-0', 'pointer-events-none');
+        }, 300); // Wait for slide animation
+    };
+    
+    const closeDesktopTooltip = () => {
+        desktopTooltip.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+    };
+
+    // Event Listeners
+    if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeMobile);
+    if (mobileDismissBtn) mobileDismissBtn.addEventListener('click', closeMobile);
+    if (mobileInstallBtn) mobileInstallBtn.addEventListener('click', handleInstall);
+
+    if (desktopInstallBtn) desktopInstallBtn.addEventListener('click', handleInstall);
+    if (desktopCloseTooltip) desktopCloseTooltip.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeDesktopTooltip();
+    });
+    
+    // Hover effect for tooltip on desktop
+    if (desktopInstallBtn) {
+        desktopInstallBtn.addEventListener('mouseenter', () => {
+            desktopTooltip.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+        });
+    }
+
+    // Check Installation & Device
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+    if (isStandalone) {
+        // App is already installed
+        console.log('App is installed');
+    } else {
+        if (isIOS) {
+            // iOS: Show custom instruction immediately (or after delay)
+            // Need to update UI text for iOS specific instruction
+            const contentP = mobilePrompt.querySelector('p');
+            // Get App Name from PHP rendered variable or DOM
+            const appName = "SIPULANA"; 
+            if(contentP) contentP.innerHTML = 'Install aplikasi <b>' + appName + '</b> di iPhone Anda:<br>Tap <span class="font-bold"><i data-lucide="share" class="inline w-4 h-4"></i> Share</span> lalu pilih <span class="font-bold"><i data-lucide="plus-square" class="inline w-4 h-4"></i> Add to Home Screen</span>';
+            
+            // Update button to just close (as we can't auto trigger install)
+            if(mobileInstallBtn) {
+                mobileInstallBtn.innerHTML = 'Oke, Paham';
+                mobileInstallBtn.onclick = closeMobile;
+            }
+
+            // Show prompt
+            setTimeout(showPromotion, 3000);
+        } else {
+            // Android/Desktop: Use standard beforeinstallprompt
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                setTimeout(showPromotion, 3000);
+            });
+        }
+    }
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            const DEBUG = false;
+            if (!window.__swRegistered) {
+                window.__swRegistered = true;
+                navigator.serviceWorker.register('https://kuapulautiga.com/service-worker.js')
+                    .then(registration => {
+                        if (DEBUG) console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(error => {
+                        if (DEBUG) console.log('ServiceWorker registration failed: ', error);
+                    });
+            }
+        });
+    }
+</script>
+
+        
+    <!-- Bottom Navigation Bar (Mobile Only) -->
+            <div class="fixed bottom-0 left-0 right-0 z-50 bg-white shadow-[0_-5px_20px_-5px_rgba(0,0,0,0.1)] border-t border-gray-100 lg:hidden pb-safe">
+            <div class="grid grid-cols-4 h-16 items-center px-2 relative">
+                
+                                                        <a href="https://kuapulautiga.com/" class="flex flex-col items-center justify-center group w-full h-full select-none relative">
+                        <div class="text-gray-400 group-hover:text-green-500 w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ease-out z-10">
+                            <i data-lucide="home" class="w-6 h-6 stroke-[1.5]"></i>
+                        </div>
+                        <span class="text-[10px] font-bold absolute bottom-2 transition-colors duration-300 text-gray-400">Beranda</span>
+                    </a>
+                                                        <a href="https://kuapulautiga.com/berita-publik" class="flex flex-col items-center justify-center group w-full h-full select-none relative">
+                        <div class="text-gray-400 group-hover:text-green-500 w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ease-out z-10">
+                            <i data-lucide="globe" class="w-6 h-6 stroke-[1.5]"></i>
+                        </div>
+                        <span class="text-[10px] font-bold absolute bottom-2 transition-colors duration-300 text-gray-400">Berita</span>
+                    </a>
+                                                        <a href="https://kuapulautiga.com/jadwal-sholat" class="flex flex-col items-center justify-center group w-full h-full select-none relative">
+                        <div class="text-gray-400 group-hover:text-green-500 w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ease-out z-10">
+                            <i data-lucide="calendar-days" class="w-6 h-6 stroke-[1.5]"></i>
+                        </div>
+                        <span class="text-[10px] font-bold absolute bottom-2 transition-colors duration-300 text-gray-400">Jadwal</span>
+                    </a>
+                                                        <a href="https://kuapulautiga.com/login" class="flex flex-col items-center justify-center group w-full h-full select-none relative">
+                        <div class="text-gray-400 group-hover:text-green-500 w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ease-out z-10">
+                            <i data-lucide="log-in" class="w-6 h-6 stroke-[1.5]"></i>
+                        </div>
+                        <span class="text-[10px] font-bold absolute bottom-2 transition-colors duration-300 text-gray-400">Login</span>
+                    </a>
+                            </div>
+        </div>
+    
+    <script>
+        lucide.createIcons();
+
+        window.addEventListener('load', function () {
+            const DEBUG = false;
+            var loader = document.getElementById('global-page-loader');
+            if (loader) {
+                loader.classList.add('opacity-0', 'pointer-events-none');
+                setTimeout(function () {
+                    if (loader && loader.parentNode) {
+                        loader.parentNode.removeChild(loader);
+                    }
+                }, 500);
+            }
+
+            if ('serviceWorker' in navigator) {
+                if (!window.__swRegistered) {
+                    window.__swRegistered = true;
+                    navigator.serviceWorker.register('https://kuapulautiga.com/service-worker.js?v=202603301652')
+                        .then(function (registration) {
+                            if (DEBUG) console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                        })
+                        .catch(function (err) {
+                            if (DEBUG) console.log('ServiceWorker registration failed: ', err);
+                        });
+                }
+            }
+        });
+
+        (function () {
+            const toast = document.getElementById('landing-toast-container');
+            if (!toast) return;
+            setTimeout(function () {
+                if (toast && toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 4000);
+        })();
+    </script>
+    <script>
+        (function () {
+            const base = "https:\/\/kuapulautiga.com";
+            if (!base) return;
+
+            const shouldRewrite = (value) => {
+                if (!value) return false;
+                if (value.startsWith('//')) return false;
+                if (!value.startsWith('/')) return false;
+                if (value.startsWith('/promosi') || value.startsWith('/undangan')) return false;
+                return true;
+            };
+
+            const rewriteAttr = (el, attr) => {
+                const v = el.getAttribute(attr);
+                if (!shouldRewrite(v)) return;
+                el.setAttribute(attr, base + v);
+            };
+
+            const rewriteAll = () => {
+                document.querySelectorAll('a[href]').forEach((a) => rewriteAttr(a, 'href'));
+                document.querySelectorAll('form[action]').forEach((f) => rewriteAttr(f, 'action'));
+                document.querySelectorAll('button[formaction]').forEach((b) => rewriteAttr(b, 'formaction'));
+            };
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', rewriteAll);
+            } else {
+                rewriteAll();
+            }
+        })();
+    </script>
+    </body>
+</html>
